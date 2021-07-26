@@ -95,6 +95,44 @@ public:
 
 //Task 2.1-------------------------------------------------
 
+class Car
+{
+protected:
+    string company = "company";
+    string model = "model";
+public:
+    Car()
+    {
+    cout << "Car:" << " " << company << " " << model << ", ";
+    }
+};
+class PassengerCar : virtual public Car
+{
+public:
+    PassengerCar()
+    {
+    cout << "PassengerCar:" << " " << company << " " << model << ", ";
+    }
+};
+class Bus : virtual public Car
+{
+public:
+    Bus()
+    {
+    cout << "Bus:" << " " << company << " " << model << ", ";
+    }
+};
+class Minivan : public PassengerCar, Bus
+{
+public:
+    Minivan()
+    {
+    cout << "Minivan:" << " " << company << " " << model << ", ";
+    }
+};
+
+
+
  int main() {
 
  //Task 1.2------------------------------------------------
@@ -114,6 +152,14 @@ public:
 
 //Task 2.2-------------------------------------------------
     cout << "Task 2" << endl;
+    Bus bus;
+    cout << endl;
+    PassengerCar passeng;
+    cout << endl;
+    Minivan minivan;
+
+
+
 
     return 0;
 }
