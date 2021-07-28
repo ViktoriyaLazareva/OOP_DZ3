@@ -131,7 +131,48 @@ public:
     }
 };
 
+//Task 3.1-------------------------------------------------
 
+class Fraction {
+private:
+    int chislitel;
+    int znamenatel;
+public:
+    Fraction(int a, int b) {
+    chislitel = a;
+    if(b != 0) {
+        znamenatel = b;
+        } else {
+        cout << "znamenatel can not be a zero!" << endl;
+        }
+    }
+
+    int getChislitel() {
+        return chislitel;
+    }
+
+    int getZnamenatel() {
+        return znamenatel;
+    }
+    friend Fraction operator+(Fraction& f1, Fraction& f2);
+    friend Fraction operator-(Fraction& f1, Fraction& f2);
+    friend Fraction operator*(Fraction& f1, Fraction& f2);
+    friend Fraction operator/(Fraction& f1, Fraction& f2);
+};
+
+Fraction operator+(Fraction& f1, Fraction& f2) {
+    return Fraction(f1.chislitel*f2.znamenatel+f2.chislitel*f1.znamenatel, f1.znamenatel*f2.znamenatel);
+}
+
+Fraction operator-(Fraction& f1, Fraction& f2) {
+    return Fraction(f1.chislitel*f2.znamenatel-f2.chislitel*f1.znamenatel, f1.znamenatel*f2.znamenatel);
+}
+Fraction operator*(Fraction& f1, Fraction& f2) {
+    return Fraction(f1.chislitel*f2.chislitel, f1.znamenatel*f2.znamenatel);
+}
+Fraction operator/(Fraction& f1, Fraction& f2) {
+    return Fraction(f1.chislitel*f2.znamenatel, f1.znamenatel*f2.chislitel);
+}
 
  int main() {
 
@@ -148,7 +189,7 @@ public:
     cout << "Rectangle area: " << rec.getArea() << endl;
     cout << "Square: " << square.getArea() << endl;
     cout << "Rhombus: " << rhombus.getArea() << endl;
-    cout << "\n" << endl;
+    cout << endl;
 
 //Task 2.2-------------------------------------------------
     cout << "Task 2" << endl;
@@ -157,9 +198,28 @@ public:
     PassengerCar passeng;
     cout << endl;
     Minivan minivan;
+    cout << endl;
+    cout << endl;
 
+//Task 3.2-------------------------------------------------
+    cout << "Task 3" << endl;
+    Fraction F1(1, 2);
+    Fraction F2(1, 4);
+    Fraction F_result = F1 + F2;
+    cout << F1.getChislitel() <<"/"<< F1.getZnamenatel() << " + " << F2.getChislitel() << "/" << F2.getZnamenatel()
+     << " = "<< F_result.getChislitel() << "/" << F_result.getZnamenatel() << endl;
 
+    F_result = F1 - F2;
+     cout << F1.getChislitel() <<"/"<< F1.getZnamenatel() << " - " << F2.getChislitel() << "/" << F2.getZnamenatel()
+     << " = "<< F_result.getChislitel() << "/" << F_result.getZnamenatel() << endl;
 
+    F_result = F1 * F2;
+     cout << F1.getChislitel() <<"/"<< F1.getZnamenatel() << " * " << F2.getChislitel() << "/" << F2.getZnamenatel()
+     << " = "<< F_result.getChislitel() << "/" << F_result.getZnamenatel() << endl;
+
+    F_result = F1 / F2;
+     cout << F1.getChislitel() <<"/"<< F1.getZnamenatel() << " / " << F2.getChislitel() << "/" << F2.getZnamenatel()
+     << " = "<< F_result.getChislitel() << "/" << F_result.getZnamenatel() << endl;
 
     return 0;
 }
