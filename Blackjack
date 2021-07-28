@@ -1,1 +1,36 @@
+#include <iostream>
 
+using namespace std;
+
+typedef enum card_suit{Spades, Hearts, Clubs, Diamonds};
+typedef enum card_value{six = 6, seven = 7, eight = 8, nine = 9, ten = 10, jack = 10, queen = 10, king = 10, ace = 1};
+
+class Card
+{
+private:
+    card_suit p_card_suit;
+    card_value p_card_value;
+    bool statement_card;
+
+public:
+    Card(card_suit c_s, card_value c_v, bool s_c) : p_card_suit (c_s), p_card_value (c_v), statement_card (s_c){}
+
+void Flip(bool& f) {
+    if(f) {
+        f = false;
+    } else {
+        f = true;
+    }
+}
+
+card_value GetValue() {
+return p_card_value;
+}
+
+};
+
+int main()
+{
+    
+    return 0;
+}
